@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.tetris-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Blocos mais destacados e coloridos, mas ainda sóbrios */
+.block {
+  position: absolute;
+  border-radius: 4px;
+}
+
+/* Blocos com cores sóbrias, tamanhos variados e opacidade média */
+.block1 { width: 70px; height: 70px; top: 10%; left: 5%; background-color: #ffde23; opacity: 0.5; }
+.block2 { width: 50px; height: 50px; top: 25%; left: 70%; background-color: #e78c61; opacity: 0.45; }
+.block3 { width: 60px; height: 60px; top: 50%; left: 40%; background-color: #4dc049; opacity: 0.5; }
+.block4 { width: 55px; height: 55px; top: 65%; left: 15%; background-color: #4f76bd; opacity: 0.55; }
+.block5 { width: 65px; height: 65px; top: 80%; left: 55%; background-color: hsl(0, 71%, 49%); opacity: 0.5; }
+.block6 { width: 50px; height: 50px; top: 35%; left: 30%; background-color: #3c7a9e; opacity: 0.45; }
+
+/* Novos blocos com cores sóbrias adicionais */
+.block7  { width: 60px; height: 60px; top: 20%; left: 50%; background-color: #fefeff; opacity: 0.45; }
+.block8  { width: 55px; height: 55px; top: 40%; left: 65%; background-color: #f04695; opacity: 0.5; }
+.block9  { width: 50px; height: 50px; top: 60%; left: 80%; background-color: #a8c2e4; opacity: 0.5; }
+.block10 { width: 65px; height: 65px; top: 75%; left: 25%; background-color: #ff153c; opacity: 0.45; }
+.block11 { width: 45px; height: 70px; top: 10%; right: 60%; background-color: #23ff351e; opacity: 0.5; }
+
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  z-index: 2;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+}
+
+.btn {
+  background: #2e4057;
+  color: white;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 2px solid #fff;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #162447;
+}
+
+.sobre, .projetos, .contato {
+  padding: 4rem 30rem;
+  text-align: center;
+}
+
+.sobre { background: #111; }
+.sobre h2 { color: #a1cfff; }
+
+.projetos { background: #222; }
+.projetos h2 { color: #91d5ff; text-transform: uppercase; }
+
+.projetos div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #2e3a59;
+  padding: 2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 2px solid #91d5ff;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: rotate(-1deg) scale(1.03);
+  background: #91d5ff;
+  color: #222;
+}
+
+.contato { background: #111; }
+.contato h2 { color: #91d5ff; text-transform: uppercase; }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea, button {
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input, textarea {
+  background: #222;
+  color: white;
+}
+
+button {
+  background: #91d5ff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2e4057;
+  color: white;
+}
+
+footer {
+  background: #000;
+  color: #888;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+/*Modal Box*/
+
+header{
+  background-color: #007bff ;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avaliar-btn {
+  background-color: white;
+  color: #007bff;
+  border-radius: 6px;
+  display: block;
+  margin-left: auto; 
+  margin-right: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.avaliar-btn:hover{
+  background-color: #e6e6e6;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.modal-content{
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-content h2{
+  margin-bottom: 10px;
+  color: #333;
+
+}
+
+.close{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #999;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover{
+  color: #000;
+} 
+
+.stars{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px 0;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.star{
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.star:hover,
+.star.selected {
+  color: #ffcc00;
+}
+
+.star.selected{
+  color: #ffcc00;
+}
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    .enviar-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      margin-top: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .enviar-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .file-label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    input[type="file"] {
+      display: block;
+      margin: 8px auto;
+      border: 1px solid #ccc;
+      padding: 6px;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+      width: 100%;
+      max-width: 300px;
+      cursor: pointer;
+    }
